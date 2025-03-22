@@ -1,81 +1,90 @@
 using Microsoft.AspNetCore.Mvc;
 using PMS.API.Mapping;
-using PMS.Application.Models;
-using PMS.Application.Repositories;
+using PMS.Application.Services;
+using PMS.Contracts.Exceptions;
 using PMS.Contracts.Requests;
 
 namespace PMS.API.Controllers;
 
 [ApiController]
-public class ProjectController(IProjectRepository projectRepository) : ControllerBase
+public class ProjectController(ProjectService projectService) : ControllerBase
 {
     [HttpGet(ApiEndpoints.Project.All)]
     public async Task<IActionResult> GetAll()
     {
-        var projects = await projectRepository.GetAllAsync();
+        var projects = await projectService.GetAll();
         var response = projects.MapToProjectsResponse();
         return Ok(response);
     }
 
     [HttpPost(ApiEndpoints.Project.Create)]
-    public async Task<IActionResult> Create(CreateProjectRequest body)
+    public async Task<IActionResult> Create(CreateProjectRequest request)
     {
-        var project = await projectRepository.CreateAsync(new Project()
+        try
         {
-            Title = body.Title,
-            ParentId = body.ParentId
-        });
-        var response = project.MapToProjectResponse();
-        return CreatedAtAction(nameof(Get), new { id = project.Id }, response);
+            var project = await projectService.Create(request);
+            var response = project.MapToProjectResponse();
+            return CreatedAtAction(nameof(Get), new { id = project.Id }, response);
+        }
+        catch
+        {
+            return BadRequest();
+        }
     }
 
     [HttpGet(ApiEndpoints.Project.Get)]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        var project = await projectRepository.GetByIdAsync(id);
-        if (project is null)
+        try
+        {
+            var project = await projectService.Get(id);
+            var response = project.MapToProjectResponse();
+            return Ok(response);
+        }
+        catch (NotFoundException)
         {
             return NotFound();
         }
-
-        var response = project.MapToProjectResponse();
-        return Ok(response);
+        catch
+        {
+            return BadRequest();
+        }
     }
 
     [HttpDelete(ApiEndpoints.Project.Delete)]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        var project = await projectRepository.GetByIdAsync(id);
-        if (project is null)
+        try
+        {
+            await projectService.Delete(id);
+            return Accepted();
+        }
+        catch (NotFoundException)
         {
             return NotFound();
         }
-
-        await projectRepository.DeleteAsync(project);
-        return Accepted();
+        catch
+        {
+            return BadRequest();
+        }
     }
 
     [HttpPut(ApiEndpoints.Project.Update)]
-    public async Task<IActionResult> Update([FromRoute] int id, UpdateProjectRequest body)
+    public async Task<IActionResult> Update([FromRoute] int id, UpdateProjectRequest request)
     {
-        var project = await projectRepository.GetByIdAsync(id);
-        if (project is null)
+        try
+        {
+            var project = await projectService.Update(id, request);
+            var response = project.MapToProjectResponse();
+            return Ok(response);
+        }
+        catch (NotFoundException)
         {
             return NotFound();
         }
-
-        if (!String.IsNullOrEmpty(body.Title))
+        catch
         {
-            project.Title = body.Title;
+            return BadRequest();
         }
-
-        if (body.ParentId is not null)
-        {
-            project.ParentId = body.ParentId;
-        }
-
-        await projectRepository.UpdateAsync(project);
-        var response = project.MapToProjectResponse();
-        return Ok(response);
     }
 }

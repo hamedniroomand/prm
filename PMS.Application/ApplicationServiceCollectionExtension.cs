@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PMS.Application.Database;
 using PMS.Application.Repositories;
+using PMS.Application.Services;
 
 namespace PMS.Application;
 
@@ -11,6 +12,7 @@ public static class ApplicationServiceCollectionExtension
     {
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IProjectRepository, ProjectGenericRepository>();
+        services.AddScoped<ProjectService>();
         return services;
     }
 
