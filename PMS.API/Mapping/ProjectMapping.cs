@@ -1,6 +1,4 @@
 using PMS.Application.Models;
-using PMS.Contracts.DTO;
-using PMS.Contracts.Requests;
 using PMS.Contracts.Responses;
 
 namespace PMS.API.Mapping;
