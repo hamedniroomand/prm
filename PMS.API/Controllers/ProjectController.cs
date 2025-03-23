@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PMS.API.Mapping;
 using PMS.Application.Services;
@@ -7,6 +8,7 @@ using PMS.Contracts.Requests;
 namespace PMS.API.Controllers;
 
 [ApiController]
+[Authorize]
 public class ProjectController(ProjectService projectService) : ControllerBase
 {
     [HttpGet(ApiEndpoints.Project.All)]
