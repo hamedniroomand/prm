@@ -1,5 +1,5 @@
-using PMS.Application.Database;
+using PRM.Application.Database;
 
-namespace PMS.Application.Repositories.User;
+namespace PRM.Application.Repositories.User;
 
 public class UserRepository(ApplicationDbContext dbContext) : GenericRepository<Models.User>(dbContext), IUserRepository;

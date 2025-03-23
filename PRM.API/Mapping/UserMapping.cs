@@ -1,7 +1,7 @@
-using PMS.Application.Models;
-using PMS.Contracts.Responses;
+using PRM.Application.Models;
+using PRM.Contracts.Responses;
 
-namespace PMS.API.Mapping;
+namespace PRM.API.Mapping;
 
 public static class UserMapping
 {

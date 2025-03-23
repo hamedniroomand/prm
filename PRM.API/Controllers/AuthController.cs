@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using PMS.Application.Services;
-using PMS.Contracts.Exceptions;
-using PMS.Contracts.Requests;
-using PMS.Contracts.Responses;
+using PRM.Application.Services;
+using PRM.Contracts.Exceptions;
+using PRM.Contracts.Requests;
+using PRM.Contracts.Responses;
 
-namespace PMS.API.Controllers;
+namespace PRM.API.Controllers;
 
 [ApiController]
 public class AuthController(AuthService authService) : Controller

@@ -1,6 +1,6 @@
-using PMS.Contracts.Responses;
+using PRM.Contracts.Responses;
 
-namespace PMS.API.DTOs;
+namespace PRM.API.DTOs;
 
 public class AuthDto
 {

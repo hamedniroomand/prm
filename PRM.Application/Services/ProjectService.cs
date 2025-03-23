@@ -1,10 +1,10 @@
-using PMS.Application.Models;
-using PMS.Application.Repositories;
-using PMS.Contracts.Exceptions;
-using PMS.Contracts.Requests;
+using PRM.Application.Models;
+using PRM.Application.Repositories;
+using PRM.Contracts.Exceptions;
+using PRM.Contracts.Requests;
 using Task = System.Threading.Tasks.Task;
 
-namespace PMS.Application.Services;
+namespace PRM.Application.Services;
 
 public class ProjectService(IProjectRepository projectRepository)
 {

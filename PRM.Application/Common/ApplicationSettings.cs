@@ -1,4 +1,4 @@
-namespace PMS.Application.Common;
+namespace PRM.Application.Common;
 
 public class ApplicationSettings(string jwtString)
 {

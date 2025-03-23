@@ -1,4 +1,4 @@
-namespace PMS.API;
+namespace PRM.API;
 
 public static class ApiEndpoints
 {

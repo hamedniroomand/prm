@@ -1,4 +1,4 @@
-namespace PMS.Contracts.Responses;
+namespace PRM.Contracts.Responses;
 
 public class AuthResponses
 {

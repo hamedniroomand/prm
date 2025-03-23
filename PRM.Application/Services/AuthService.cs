@@ -3,11 +3,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using PMS.Application.Common;
-using PMS.Application.Models;
-using PMS.Contracts.Exceptions;
+using PRM.Application.Common;
+using PRM.Application.Models;
+using PRM.Contracts.Exceptions;
 
-namespace PMS.Application.Services;
+namespace PRM.Application.Services;
 
 public class AuthService(UserService userService, ApplicationSettings applicationSettings)
 {

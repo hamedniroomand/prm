@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PMS.Application.Database.Seeders;
-using PMS.Application.Models;
-using Task = PMS.Application.Models.Task;
+using PRM.Application.Database.Seeders;
+using PRM.Application.Models;
+using Task = PRM.Application.Models.Task;
 
-namespace PMS.Application.Database;
+namespace PRM.Application.Database;
 
 public class ApplicationDbContext : DbContext
 {

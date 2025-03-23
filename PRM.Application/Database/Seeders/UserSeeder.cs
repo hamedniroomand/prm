@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PMS.Application.Models;
+using PRM.Application.Models;
 
-namespace PMS.Application.Database.Seeders;
+namespace PRM.Application.Database.Seeders;
 
 public static class UserSeeder
 {

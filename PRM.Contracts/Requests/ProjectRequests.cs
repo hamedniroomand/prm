@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace PMS.Contracts.Requests;
+namespace PRM.Contracts.Requests;
 
 public class CreateProjectRequest
 {

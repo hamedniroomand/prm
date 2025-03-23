@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PMS.API.Mapping;
-using PMS.Application.Services;
-using PMS.Contracts.Exceptions;
-using PMS.Contracts.Requests;
+using PRM.API.Mapping;
+using PRM.Application.Services;
+using PRM.Contracts.Exceptions;
+using PRM.Contracts.Requests;
 
-namespace PMS.API.Controllers;
+namespace PRM.API.Controllers;
 
 [ApiController]
 [Authorize]

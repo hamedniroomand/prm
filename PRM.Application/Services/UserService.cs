@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using PMS.Application.Models;
-using PMS.Application.Repositories.User;
+using PRM.Application.Models;
+using PRM.Application.Repositories.User;
 
-namespace PMS.Application.Services;
+namespace PRM.Application.Services;
 
 public class UserService(IUserRepository userRepository)
 {

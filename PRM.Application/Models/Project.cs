@@ -1,4 +1,4 @@
-namespace PMS.Application.Models;
+namespace PRM.Application.Models;
 
 public class Project : EntityBase
 {

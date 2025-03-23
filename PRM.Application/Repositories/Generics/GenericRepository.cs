@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using PMS.Application.Database;
-using PMS.Application.Models;
+using PRM.Application.Database;
+using PRM.Application.Models;
 using Task = System.Threading.Tasks.Task;
 
-namespace PMS.Application.Repositories;
+namespace PRM.Application.Repositories;
 
 public class GenericRepository<T>(ApplicationDbContext dbContext) : IGenericRepository<T> where T : EntityBase
 {

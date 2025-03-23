@@ -1,6 +1,6 @@
-using PMS.Application.Database;
-using PMS.Application.Models;
+using PRM.Application.Database;
+using PRM.Application.Models;
 
-namespace PMS.Application.Repositories;
+namespace PRM.Application.Repositories;
 
 public class ProjectRepository(ApplicationDbContext dbContext) : GenericRepository<Project>(dbContext), IProjectRepository;

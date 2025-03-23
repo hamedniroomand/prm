@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using PMS.Application.Models;
+using PRM.Application.Models;
 using Task = System.Threading.Tasks.Task;
 
-namespace PMS.Application.Repositories;
+namespace PRM.Application.Repositories;
 
 public interface IGenericRepository<T> where T: EntityBase
 {

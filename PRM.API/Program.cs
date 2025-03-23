@@ -1,8 +1,8 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using PMS.Application;
-using PMS.Application.Common;
+using PRM.Application;
+using PRM.Application.Common;
 
 DotNetEnv.Env.Load();
 

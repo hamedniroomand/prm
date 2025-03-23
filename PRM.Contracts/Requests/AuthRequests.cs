@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace PMS.Contracts.Requests;
+namespace PRM.Contracts.Requests;
 
 public class LoginRequest
 {

@@ -1,6 +1,6 @@
-using PMS.Application.Models;
+using PRM.Application.Models;
 
-namespace PMS.Application.Repositories;
+namespace PRM.Application.Repositories;
 
 public interface IProjectRepository : IGenericRepository<Project>
 {

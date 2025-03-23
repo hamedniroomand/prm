@@ -1,4 +1,4 @@
-namespace PMS.Contracts.Exceptions;
+namespace PRM.Contracts.Exceptions;
 
 public class AppException : Exception
 {

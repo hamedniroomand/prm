@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using PMS.Application.Database;
-using PMS.Application.Repositories;
-using PMS.Application.Repositories.User;
-using PMS.Application.Services;
+using PRM.Application.Database;
+using PRM.Application.Repositories;
+using PRM.Application.Repositories.User;
+using PRM.Application.Services;
 
-namespace PMS.Application;
+namespace PRM.Application;
 
 public static class ApplicationServiceCollectionExtension
 {
