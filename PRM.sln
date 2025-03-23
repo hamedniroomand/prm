@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.API", "PRM.API\PRM.API.csproj", "{11EE116A-C1B6-4145-9813-C917737859DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.Application", "PRM.Application\PRM.Application.csproj", "{3F86D64D-C7BA-4137-8C4C-19C535CF1303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.Contracts", "PRM.Contracts\PRM.Contracts.csproj", "{6777E619-74FA-4672-87E5-C78FBBB99A74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11EE116A-C1B6-4145-9813-C917737859DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EE116A-C1B6-4145-9813-C917737859DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EE116A-C1B6-4145-9813-C917737859DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EE116A-C1B6-4145-9813-C917737859DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F86D64D-C7BA-4137-8C4C-19C535CF1303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F86D64D-C7BA-4137-8C4C-19C535CF1303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F86D64D-C7BA-4137-8C4C-19C535CF1303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F86D64D-C7BA-4137-8C4C-19C535CF1303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6777E619-74FA-4672-87E5-C78FBBB99A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6777E619-74FA-4672-87E5-C78FBBB99A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6777E619-74FA-4672-87E5-C78FBBB99A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6777E619-74FA-4672-87E5-C78FBBB99A74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
