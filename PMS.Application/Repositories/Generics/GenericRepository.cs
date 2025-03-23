@@ -5,21 +5,14 @@ using Task = System.Threading.Tasks.Task;
 
 namespace PMS.Application.Repositories;
 
-public class GenericRepository<T> : IGenericRepository<T> where T : EntityBase
+public class GenericRepository<T>(ApplicationDbContext dbContext) : IGenericRepository<T> where T : EntityBase
 {
-    private readonly ApplicationDbContext _dbContext;
-    private readonly DbSet<T> _set;
-
-    public GenericRepository(ApplicationDbContext dbContext)
-    {
-        _dbContext = dbContext;
-        _set = dbContext.Set<T>();
-    }
+    private readonly DbSet<T> _set = dbContext.Set<T>();
 
     public async Task<T> CreateAsync(T entity)
     {
         var createdEntity = await _set.AddAsync(entity);
-        await _dbContext.SaveChangesAsync();
+        await SaveChanges();
         return createdEntity.Entity;
     }
 
@@ -37,13 +30,23 @@ public class GenericRepository<T> : IGenericRepository<T> where T : EntityBase
     {
         entity.UpdatedAt = DateTime.Now;
         var updatedEntity = _set.Update(entity);
-        await _dbContext.SaveChangesAsync();
+        await SaveChanges();
         return updatedEntity.Entity;
     }
 
     public async Task DeleteAsync(T entity)
     {
         _set.Remove(entity);
-        await _dbContext.SaveChangesAsync();
+        await SaveChanges();
+    }
+
+    public async Task SaveChanges()
+    {
+        await dbContext.SaveChangesAsync();
+    }
+
+    public DbSet<T> GetQuery()
+    {
+        return _set;
     }
 }

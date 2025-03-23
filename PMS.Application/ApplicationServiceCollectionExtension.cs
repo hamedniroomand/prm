@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PMS.Application.Database;
 using PMS.Application.Repositories;
+using PMS.Application.Repositories.User;
 using PMS.Application.Services;
 
 namespace PMS.Application;
@@ -11,8 +12,14 @@ public static class ApplicationServiceCollectionExtension
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-        services.AddScoped<IProjectRepository, ProjectGenericRepository>();
+
+        services.AddScoped<IProjectRepository, ProjectRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+
         services.AddScoped<ProjectService>();
+        services.AddScoped<UserService>();
+        services.AddScoped<AuthService>();
+
         return services;
     }
 

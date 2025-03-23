@@ -18,7 +18,7 @@ public static class UserSeeder
                 Role = UserRole.SuperAdmin,
                 Verified = true,
                 Username = "admin",
-                Password = hasher.HashPassword(null, Guid.NewGuid().ToString())
+                Password = hasher.HashPassword(null, "Th@les123")
             }
         );
         return builder;

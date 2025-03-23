@@ -4,7 +4,7 @@ public enum UserRole
 {
     SuperAdmin = 1,
     Admin = 2,
-    Employee,
+    Employee = 3,
 }
 
 public class User : EntityBase
