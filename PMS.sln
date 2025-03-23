@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.API", "PMS.API\PMS.API.csproj", "{11EE116A-C1B6-4145-9813-C917737859DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.API", "PRM.API\PRM.API.csproj", "{11EE116A-C1B6-4145-9813-C917737859DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Application", "PMS.Application\PMS.Application.csproj", "{3F86D64D-C7BA-4137-8C4C-19C535CF1303}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.Application", "PRM.Application\PRM.Application.csproj", "{3F86D64D-C7BA-4137-8C4C-19C535CF1303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Contracts", "PMS.Contracts\PMS.Contracts.csproj", "{6777E619-74FA-4672-87E5-C78FBBB99A74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRM.Contracts", "PRM.Contracts\PRM.Contracts.csproj", "{6777E619-74FA-4672-87E5-C78FBBB99A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>PMS.API</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,8 +18,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PMS.Application\PMS.Application.csproj" />
-      <ProjectReference Include="..\PMS.Contracts\PMS.Contracts.csproj" />
+      <ProjectReference Include="..\PRM.Application\PRM.Application.csproj" />
+      <ProjectReference Include="..\PRM.Contracts\PRM.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
