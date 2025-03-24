@@ -30,7 +30,7 @@ public class ApplicationDbContext : DbContext
             .IsUnique();
 
         modelBuilder.Entity<Task>()
-            .HasOne(x => x.Project)
+            .HasOne<Project>()
             .WithMany(x => x.Tasks)
             .HasForeignKey(x => x.ProjectId)
             .OnDelete(DeleteBehavior.Cascade); // Tasks will auto-delete when Project is deleted
