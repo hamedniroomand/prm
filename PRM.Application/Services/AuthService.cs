@@ -40,12 +40,14 @@ public class AuthService(UserService userService, ApplicationSettings applicatio
 
     private string GenerateJwtToken(User user)
     {
-        var claims = new[]
+        var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Username),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.Sid, user.Username),
+            new Claim(ClaimTypes.Role, user.Role.ToString())
         };
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(applicationSettings.JwtString));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 

@@ -11,7 +11,18 @@ public static class UserMapping
         {
             Id = user.Id,
             Name = user.Name,
-            Username = user.Username
+            Username = user.Username,
+            Role = user.Role.ToString(),
         };
+    }
+
+    public static List<UserResponses.User> MapToUsersResponse(this List<User> users)
+    {
+        List<UserResponses.User> result = [];
+        foreach (var user in users)
+        {
+            result.Add(user.MapToUserResponse());
+        }
+        return result;
     }
 }
