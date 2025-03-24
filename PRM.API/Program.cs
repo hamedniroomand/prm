@@ -35,6 +35,7 @@ builder.Services.AddAuthorizationBuilder()
     .AddPolicy(AuthConstants.EmployeePolicyName, p => p.RequireClaim(UserRole.Employee.ToString()));
 
 builder.Services.AddSingleton(new ApplicationSettings(Environment.GetEnvironmentVariable("JWT_SECRET")!));
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
