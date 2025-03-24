@@ -79,11 +79,11 @@ public class ProjectService(IProjectRepository projectRepository, IProjectAssign
         });
     }
 
-    public async Task<List<Project>> GetAllUserAssignees(string username)
+    public async Task<List<Project>> GetAllUserAssignees(User user)
     {
         return await projectRepository.GetAllAsync()
             .Include(project => project.Users)
-            .Where(project => project.Users.Any(user => user.Username == username))
+            .Where(project => project.Users.Any(u => u.Id == user.Id))
             .ToListAsync();
     }
 }

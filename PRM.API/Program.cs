@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PRM.API.Common;
+using PRM.API.ModelBinderProviders;
 using PRM.Application;
 using PRM.Application.Common;
 using PRM.Application.Models;
@@ -36,7 +37,10 @@ builder.Services.AddAuthorizationBuilder()
 
 builder.Services.AddSingleton(new ApplicationSettings(Environment.GetEnvironmentVariable("JWT_SECRET")!));
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.ModelBinderProviders.Insert(0, new CurrentUserModelBinderProvider());
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
 {
