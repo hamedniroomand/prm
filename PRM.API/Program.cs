@@ -62,6 +62,12 @@ builder.Services.AddSwaggerGen(x =>
             Array.Empty<string>()
         }
     });
+    x.TagActionsBy(apiDesc =>
+    {
+        var groupName = apiDesc.GroupName ?? apiDesc.ActionDescriptor.RouteValues["controller"];
+        return [groupName];
+    });
+    x.DocInclusionPredicate((docName, apiDesc) => true);
 });
 
 builder.Services.AddDatabase(Environment.GetEnvironmentVariable("DATABASE_CONNECTION")!);
