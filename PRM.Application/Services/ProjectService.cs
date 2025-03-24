@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PRM.Application.Models;
 using PRM.Application.Repositories;
 using PRM.Application.Repositories.ProjectAssignee;
@@ -11,7 +12,7 @@ public class ProjectService(IProjectRepository projectRepository, IProjectAssign
 {
     public Task<List<Project>> GetAll()
     {
-        return projectRepository.GetAllAsync();
+        return projectRepository.GetAllAsync().ToListAsync();
     }
 
     public Task<Project> Create(CreateProjectRequest request)
@@ -76,5 +77,13 @@ public class ProjectService(IProjectRepository projectRepository, IProjectAssign
             UserId = user.Id,
 
         });
+    }
+
+    public async Task<List<Project>> GetAllUserAssignees(string username)
+    {
+        return await projectRepository.GetAllAsync()
+            .Include(project => project.Users)
+            .Where(project => project.Users.Any(user => user.Username == username))
+            .ToListAsync();
     }
 }
