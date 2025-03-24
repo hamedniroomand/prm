@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PRM.Application.Database;
 using PRM.Application.Repositories;
+using PRM.Application.Repositories.ProjectAssignee;
 using PRM.Application.Repositories.User;
 using PRM.Application.Services;
 
@@ -15,6 +16,7 @@ public static class ApplicationServiceCollectionExtension
 
         services.AddScoped<IProjectRepository, ProjectRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IProjectAssigneeRepository, ProjectAssigneeRepository>();
 
         services.AddScoped<ProjectService>();
         services.AddScoped<UserService>();

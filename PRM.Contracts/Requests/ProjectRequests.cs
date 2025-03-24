@@ -11,7 +11,7 @@ public class CreateProjectRequest
     public required string Title { get; init; }
 
     [AllowNull()]
-    public int? ParentId { get; } = null;
+    public int? ParentId { get; set; } = null;
 }
 
 public class UpdateProjectRequest

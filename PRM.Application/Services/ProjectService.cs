@@ -1,12 +1,13 @@
 using PRM.Application.Models;
 using PRM.Application.Repositories;
+using PRM.Application.Repositories.ProjectAssignee;
 using PRM.Contracts.Exceptions;
 using PRM.Contracts.Requests;
 using Task = System.Threading.Tasks.Task;
 
 namespace PRM.Application.Services;
 
-public class ProjectService(IProjectRepository projectRepository)
+public class ProjectService(IProjectRepository projectRepository, IProjectAssigneeRepository projectAssigneeRepository, UserService userService)
 {
     public Task<List<Project>> GetAll()
     {
@@ -58,5 +59,22 @@ public class ProjectService(IProjectRepository projectRepository)
     {
         var project = await Get(id);
         await projectRepository.DeleteAsync(project);
+    }
+
+    public async Task<ProjectAssignee> AssignToUser(int projectId, int userId)
+    {
+        var project = await projectRepository.GetByIdAsync(projectId);
+        var user = await userService.GetByIdAsync(userId);
+        if (user is null || project is null)
+        {
+            throw new NotFoundException();
+        }
+
+        return await projectAssigneeRepository.CreateAsync(new ProjectAssignee()
+        {
+            ProjectId = project.Id,
+            UserId = user.Id,
+
+        });
     }
 }

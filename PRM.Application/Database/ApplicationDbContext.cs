@@ -11,17 +11,23 @@ public class ApplicationDbContext : DbContext
     public DbSet<Project> Projects { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Task> Tasks { get; set; }
+    public DbSet<ProjectAssignee> ProjectAssignees { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
     {
         Projects = Set<Project>();
         Users = Set<User>();
         Projects = Set<Project>();
+        ProjectAssignees = Set<ProjectAssignee>();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.SeedUserData();
+
+        modelBuilder.Entity<User>()
+            .HasIndex(x => x.Username)
+            .IsUnique();
 
         modelBuilder.Entity<Task>()
             .HasOne(x => x.Project)
@@ -34,5 +40,14 @@ public class ApplicationDbContext : DbContext
             .WithMany(x => x.Tasks)
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Restrict); // Prevent accidental task deletion via User
+
+        modelBuilder.Entity<User>()
+            .HasMany(user => user.Projects)
+            .WithMany(project => project.Users)
+            .UsingEntity<ProjectAssignee>();
+
+        modelBuilder.Entity<ProjectAssignee>()
+            .HasIndex(x => new { x.ProjectId, x.UserId })
+            .IsUnique();
     }
 }

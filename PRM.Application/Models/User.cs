@@ -17,4 +17,5 @@ public class User : EntityBase
     public UserRole Role { get; set; } = UserRole.Employee;
     public DateTime? LastVisitedAt { get; set; }
     public IEnumerable<Task> Tasks { get; set; } = [];
+    public List<Project> Projects { get; } = [];
 }
