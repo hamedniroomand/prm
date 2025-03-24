@@ -21,9 +21,9 @@ public class GenericRepository<T>(ApplicationDbContext dbContext) : IGenericRepo
         return _set.FirstOrDefaultAsync(entity => entity.Id == id);
     }
 
-    public Task<List<T>> GetAllAsync()
+    public IQueryable<T> GetAllAsync()
     {
-        return _set.ToListAsync();
+        return _set.AsQueryable();
     }
 
     public async Task<T> UpdateAsync(T entity)

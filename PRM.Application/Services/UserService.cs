@@ -16,7 +16,7 @@ public class UserService(IUserRepository userRepository)
 
     public Task<List<User>> GetAll()
     {
-        return userRepository.GetAllAsync();
+        return userRepository.GetAllAsync().ToListAsync();
     }
 
     public async Task<User> GetByIdAsync(int id)

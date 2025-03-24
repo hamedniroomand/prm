@@ -8,7 +8,7 @@ public interface IGenericRepository<T> where T: EntityBase
 {
     Task<T> CreateAsync(T entity);
     Task<T?> GetByIdAsync(int id);
-    Task<List<T>> GetAllAsync();
+    IQueryable<T> GetAllAsync();
     Task<T> UpdateAsync(T entity);
     Task DeleteAsync(T entity);
     Task SaveChanges();
