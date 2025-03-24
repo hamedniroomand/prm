@@ -10,6 +10,7 @@ using PRM.Contracts.Requests.admin;
 namespace PRM.API.Controllers.admin
 {
     [ApiController]
+    [ApiExplorerSettings(GroupName = "Admin")]
     [Authorize(Roles = AuthConstants.AdminOrSuperAdminRoles)]
     public class AdminProjectController(ProjectService projectService) : Controller
     {
